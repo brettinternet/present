@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "esnext",
+    "module": "es6",
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "lib": ["dom", "es2017"],
+    "moduleResolution": "node",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "typeRoots": ["./@types", "./node_modules/@types"],
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "outDir": ".cache",
+    "strict": false
+  },
+  "include": "./src/**/*",
+  "exclude": [
+    "node_modules",
+    ".cache",
+    "public",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}

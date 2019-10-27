@@ -1,0 +1,65 @@
+{
+  "name": "present",
+  "description": "Markdown + Reveal.js + GatsbyJS",
+  "version": "0.1.0",
+  "author": "@brettinternet",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brettinternet/present"
+  },
+  "bugs": {
+    "url": "https://github.com/brettinternet/present/issues"
+  },
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.22",
+    "gatsby": "^2.16.1",
+    "gatsby-image": "^2.2.29",
+    "gatsby-plugin-emotion": "^4.1.12",
+    "gatsby-plugin-layout": "^1.1.13",
+    "gatsby-plugin-manifest": "^2.2.23",
+    "gatsby-plugin-offline": "^3.0.16",
+    "gatsby-plugin-react-helmet": "^3.1.13",
+    "gatsby-plugin-root-import": "^2.0.5",
+    "gatsby-plugin-sharp": "^2.2.31",
+    "gatsby-plugin-typescript": "^2.1.15",
+    "gatsby-remark-copy-linked-files": "^2.1.28",
+    "gatsby-remark-graphviz": "^1.1.15",
+    "gatsby-remark-katex": "^3.1.15",
+    "gatsby-remark-prismjs": "^3.3.20",
+    "gatsby-remark-smartypants": "^2.1.14",
+    "gatsby-source-filesystem": "^2.1.33",
+    "gatsby-transformer-remark": "^2.6.30",
+    "gatsby-transformer-sharp": "^2.2.23",
+    "highlight.js": "^9.15.10",
+    "highlightjs-line-numbers.js": "^2.7.0",
+    "katex": "^0.11.1",
+    "marked": "^0.7.0",
+    "prismjs": "^1.17.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-helmet": "^5.2.1",
+    "reveal.js": "^3.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.7",
+    "@types/react": "^16.9.10",
+    "@types/react-dom": "^16.9.2",
+    "@types/react-helmet": "^5.0.13",
+    "@types/reveal": "^3.3.33",
+    "gh-pages": "^2.1.1",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
+  }
+}
