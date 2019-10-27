@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{204:function(n,t,e){"use strict";e.r(t);var o=e(2);e(0);t.default=function(){return Object(o.d)("div",null,Object(o.d)("h1",null,"No presentation found."))}}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-8fa1dc67aa268c8ae3d8.js.map
