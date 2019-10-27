@@ -31,7 +31,7 @@ const IndexPage = ({ data }) => {
     .sort(sortPaths)
 
   return (
-    <Layout headProps={{ title: "" }}>
+    <Layout headProps={{ title: "Home" }}>
       <div
         css={css`
           /* max-width: 600px; */

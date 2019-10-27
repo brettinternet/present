@@ -1,6 +1,6 @@
 {
   "name": "present",
-  "description": "Markdown + Reveal.js + GatsbyJS",
+  "description": "Static presentations with Markdown + Reveal.js + GatsbyJS",
   "version": "0.1.0",
   "author": "@brettinternet",
   "license": "MIT",

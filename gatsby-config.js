@@ -4,7 +4,7 @@ const presentationsDirname = "presentations"
 
 module.exports = {
   siteMetadata: {
-    prefixPath: `/${pkg.name}`,
+    pathPrefix: `/${pkg.name}`,
     title: `Present`,
     description: pkg.description,
     author: {
