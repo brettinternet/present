@@ -1,8 +1,28 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import css from "@emotion/css"
+import styled from "@emotion/styled"
 
 import Layout from "../components/Layout"
+
+const Wrapper = styled.div`
+  font-family: "Raleway", sans-serif;
+  /* max-width: 600px; */
+  margin: auto;
+  padding: 1rem;
+
+  a {
+    &,
+    &:visited {
+      color: blue;
+    }
+
+    &:hover {
+      color: white;
+      background: blue;
+    }
+  }
+`
 
 const pathRank = (path: string) => {
   return (path.match(/\//g) || []).length
@@ -32,13 +52,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout headProps={{ title: "Home" }}>
-      <div
-        css={css`
-          /* max-width: 600px; */
-          margin: auto;
-          padding: 1rem;
-        `}
-      >
+      <Wrapper>
         <h1>
           {author.shortName}'s {presentationsDirname}
         </h1>
@@ -49,10 +63,11 @@ const IndexPage = ({ data }) => {
               font-family: "Fira Mono", monospace;
             `}
           >
-            <Link to={path}>{removeTrailingSlash(path)}</Link>
+            {/* Link does not work here bc Reveal has no Destroy() */}
+            <a href={path}>{removeTrailingSlash(path)}</a>
           </p>
         ))}
-      </div>
+      </Wrapper>
     </Layout>
   )
 }

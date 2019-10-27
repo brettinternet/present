@@ -2,6 +2,50 @@ const pkg = require("./package.json")
 
 const presentationsDirname = "presentations"
 
+const revealjsConfig = {
+  controls: true,
+  controlsTutorial: true,
+  controlsLayout: "bottom-right",
+  controlsBackArrows: "faded",
+  progress: true,
+  slideNumber: false,
+  hash: true,
+  history: false,
+  keyboard: true,
+  overview: true,
+  center: true,
+  touch: true,
+  loop: false,
+  rtl: false,
+  navigationMode: "default",
+  shuffle: false,
+  fragments: true,
+  fragmentInURL: false,
+  embedded: false,
+  help: true,
+  showNotes: false,
+  autoPlayMedia: false, //null
+  preloadIframes: false, //null
+  autoSlide: 0,
+  autoSlideStoppable: true,
+  autoSlideMethod: "",
+  defaultTiming: 120,
+  mouseWheel: false,
+  hideInactiveCursor: true,
+  hideCursorTime: 5000,
+  hideAddressBar: true,
+  previewLinks: false,
+  transition: "slide",
+  transitionSpeed: "default",
+  backgroundTransition: "fade",
+  viewDistance: 3,
+  parallaxBackgroundImage: "",
+  parallaxBackgroundSize: "",
+  parallaxBackgroundHorizontal: false, //null
+  parallaxBackgroundVertical: false, //null
+  display: "block",
+}
+
 module.exports = {
   pathPrefix: `/${pkg.name}`,
   siteMetadata: {
@@ -18,7 +62,7 @@ module.exports = {
     fontLink:
       "https://fonts.googleapis.com/css?family=Fira+Mono|Raleway&display=swap",
     presentationsDirname,
-    revealjsConfig: {},
+    revealjsConfig,
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -52,7 +96,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: `${__dirname}/src/templates/Layout`,
+        component: `${__dirname}/src/components/Layout/Global`,
       },
     },
     {

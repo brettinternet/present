@@ -1,11 +1,11 @@
 import React from "react"
 import { Theme, Config } from "./Reveal.types"
-import { Global, css } from "@emotion/core"
+import { css } from "@emotion/core"
 
-// import Reveal from "reveal.js"
 import { PageLoader } from "../Loader"
 
 const katexCss = require(`katex/dist/katex.min.css`)
+const revealCss = require("reveal.js/css/reveal.css")
 
 interface RevealerProps {
   config?: Config
@@ -26,6 +26,8 @@ interface RevealerState {
  * https://stackoverflow.com/questions/47574490/open-a-component-in-new-window-on-a-click-in-react?rq=1
  */
 class Revealer extends React.Component<RevealerProps, RevealerState> {
+  Reveal: any
+
   static defaultProps: Partial<RevealerProps> = {
     theme: Theme.WHITE,
     config: {
@@ -42,10 +44,9 @@ class Revealer extends React.Component<RevealerProps, RevealerState> {
   }
 
   componentDidMount() {
-    console.log("MOUNTING")
-
     if (typeof window !== "undefined") {
-      require("reveal.js").initialize(this.props.config)
+      this.Reveal = require("reveal.js")
+      this.Reveal.initialize(this.props.config)
     }
 
     this.setState({
@@ -53,34 +54,49 @@ class Revealer extends React.Component<RevealerProps, RevealerState> {
     })
   }
 
+  componentWillUnmount() {
+    this.Reveal.removeEventListeners()
+  }
+
   render() {
     const { isLoading } = this.state
     const { html, separator, separatorVertical } = this.props
 
-    const revealCss = require("reveal.js/css/reveal.css")
     const themeCss = require(`reveal.js/css/theme/${this.props.theme}.css`)
     return (
-      <PageLoader isLoading={isLoading}>
-        <Global
-          styles={css`
-            ${revealCss}
-            ${katexCss}
-            .reveal {
-              height: 100vh !important;
-              overflow: hidden;
+      <article
+        css={css`
+          ${revealCss}
+          ${katexCss}
 
-              ${themeCss}}
+          .reveal {
+            height: 100vh !important;
+            overflow: hidden;
+
+            .gatsby-highlight-code-line {
+              background-color: rgba(0, 0, 0, 0.5);
+              display: block;
+              /* margin-right: -1em; */
+              margin-left: -1em;
+              padding-right: 1em;
+              padding-left: 0.75em;
+              border-left: 0.25em solid rgba(255, 255, 255, 0.5);
             }
-          `}
-        />
-        <div className="reveal">
-          {this.renderHtml({
-            html,
-            separator,
-            separatorVertical,
-          })}
-        </div>
-      </PageLoader>
+
+            ${themeCss}}
+          }
+        `}
+      >
+        <PageLoader isLoading={isLoading}>
+          <div className="reveal">
+            {this.renderHtml({
+              html,
+              separator,
+              separatorVertical,
+            })}
+          </div>
+        </PageLoader>
+      </article>
     )
   }
 

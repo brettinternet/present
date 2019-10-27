@@ -1,22 +1,5 @@
 const path = require(`path`)
 
-/**
- * Make `path` nullable
- * @docs https://www.gatsbyjs.org/docs/schema-customization/#nested-types
- */
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-    }
-    type Frontmatter {
-      path: [String!]
-    }
-  `
-  createTypes(typeDefs)
-}
-
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const noteTemplate = path.resolve(`src/templates/note.tsx`)
@@ -87,4 +70,22 @@ function removeExtension(str) {
 
 function addTrailingSlash(str) {
   return str.slice(-1) === "/" ? str : str + "/"
+}
+
+/**
+ * Make `path` nullable
+ * @docs https://www.gatsbyjs.org/docs/schema-customization/#nested-types
+ */
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      path: [String!]
+      description: [String!]
+    }
+  `
+  createTypes(typeDefs)
 }

@@ -1,17 +1,23 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import Head from "../components/Layout/Head"
 import Reveal from "../components/Reveal"
+import { Config } from "../components/Reveal/Reveal.types"
 import { Global, css } from "@emotion/core"
 
 interface Frontmatter {
   title: string
-  date: string
-  config: {}
+  description?: string
 }
 
 interface NoteProps {
   data: {
+    site: {
+      siteMetadata: {
+        revealjsConfig: Config
+      }
+    }
     markdownRemark: {
       frontmatter: Frontmatter
       html: string
@@ -21,8 +27,9 @@ interface NoteProps {
 }
 
 const NoteTemplate: React.SFC<NoteProps> = ({ data }) => {
-  const { markdownRemark } = data
+  const { markdownRemark, site } = data
   const { frontmatter, html } = markdownRemark
+  const { title, description } = frontmatter
 
   /**
    * https://github.com/PrismJS/prism/tree/master/themes
@@ -35,8 +42,9 @@ const NoteTemplate: React.SFC<NoteProps> = ({ data }) => {
 
   return (
     <>
+      <Head title={title || "Presentation"} description={description} />
       <GlobalStyles />
-      <Reveal config={frontmatter.config} html={html} />
+      <Reveal config={site.siteMetadata.revealjsConfig} html={html} />
     </>
   )
 }
@@ -48,6 +56,54 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        description
+      }
+    }
+    site {
+      siteMetadata {
+        revealjsConfig {
+          controls
+          controlsTutorial
+          controlsLayout
+          controlsBackArrows
+          progress
+          slideNumber
+          hash
+          history
+          keyboard
+          overview
+          center
+          touch
+          loop
+          rtl
+          navigationMode
+          shuffle
+          fragments
+          fragmentInURL
+          embedded
+          help
+          showNotes
+          autoPlayMedia
+          preloadIframes
+          autoSlide
+          autoSlideStoppable
+          autoSlideMethod
+          defaultTiming
+          mouseWheel
+          hideInactiveCursor
+          hideCursorTime
+          hideAddressBar
+          previewLinks
+          transition
+          transitionSpeed
+          backgroundTransition
+          viewDistance
+          parallaxBackgroundImage
+          parallaxBackgroundSize
+          parallaxBackgroundHorizontal
+          parallaxBackgroundVertical
+          display
+        }
       }
     }
   }
@@ -60,19 +116,46 @@ export default NoteTemplate
  * https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/?=prismjs#optional-add-line-numbering
  */
 function GlobalStyles() {
-  return (
-    <Global
-      styles={css`
-        .gatsby-highlight-code-line {
-          background-color: rgba(0, 0, 0, 0.5);
-          display: block;
-          margin-right: -1em;
-          margin-left: -1em;
-          padding-right: 1em;
-          padding-left: 0.75em;
-          border-left: 0.25em solid rgba(255, 255, 255, 0.5);
-        }
-      `}
-    />
-  )
+  return <Global styles={css``} />
 }
+
+// controlsTutorial
+// controlsLayout
+// controlsBackArrows
+// progress
+// slideNumber
+// hash
+// history
+// keyboard
+// overview
+// center
+// touch
+// loop
+// rtl
+// navigationMode
+// shuffle
+// fragments
+// fragmentInURL
+// embedded
+// help
+// showNotes
+// autoPlayMedia
+// preloadIframes
+// autoSlide
+// autoSlideStoppable
+// autoSlideMethod
+// defaultTiming
+// mouseWheel
+// hideInactiveCursor
+// hideCursorTime
+// hideAddressBar
+// previewLinks
+// transition
+// transitionSpeed
+// backgroundTransition
+// viewDistance
+// parallaxBackgroundImage
+// parallaxBackgroundSize
+// parallaxBackgroundHorizontal
+// parallaxBackgroundVertical
+// display

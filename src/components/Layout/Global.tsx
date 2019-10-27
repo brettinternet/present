@@ -10,17 +10,6 @@ const globalStyles = css`
 
   body {
     margin: 0;
-    font-family: "Raleway", sans-serif;
-  }
-
-  a {
-    &:visited {
-      color: black;
-    }
-
-    &:hover {
-      font-weight: bold;
-    }
   }
 `
 
