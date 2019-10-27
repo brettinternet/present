@@ -42,6 +42,8 @@ class Revealer extends React.Component<RevealerProps, RevealerState> {
   }
 
   componentDidMount() {
+    console.log("MOUNTING")
+
     if (typeof window !== "undefined") {
       require("reveal.js").initialize(this.props.config)
     }
@@ -58,7 +60,7 @@ class Revealer extends React.Component<RevealerProps, RevealerState> {
     const revealCss = require("reveal.js/css/reveal.css")
     const themeCss = require(`reveal.js/css/theme/${this.props.theme}.css`)
     return (
-      <PageLoader isLoading={isLoading} style={{ height: "100%" }}>
+      <PageLoader isLoading={isLoading}>
         <Global
           styles={css`
             ${revealCss}

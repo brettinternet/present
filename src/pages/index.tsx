@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import css from "@emotion/css"
 
 import Layout from "../components/Layout"
@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => {
               font-family: "Fira Mono", monospace;
             `}
           >
-            <a href={path}>{removeTrailingSlash(path)}</a>
+            <Link to={path}>{removeTrailingSlash(path)}</Link>
           </p>
         ))}
       </div>

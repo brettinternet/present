@@ -3,8 +3,8 @@ const pkg = require("./package.json")
 const presentationsDirname = "presentations"
 
 module.exports = {
+  pathPrefix: `/${pkg.name}`,
   siteMetadata: {
-    pathPrefix: `/${pkg.name}`,
     title: `Present`,
     description: pkg.description,
     author: {

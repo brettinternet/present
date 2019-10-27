@@ -17,7 +17,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build --prefix-paths",
     "deploy": "gh-pages -d public"
   },
   "dependencies": {
