@@ -1,21 +1,3 @@
-/**
- * @source https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-link/src/index.js
- */
-export function withPrefix(path: string) {
-  return normalizePath(
-    [
-      typeof global.__BASE_PATH__ !== `undefined`
-        ? global.__BASE_PATH__
-        : global.__PATH_PREFIX__,
-      path,
-    ].join(`/`)
-  )
-}
-
-function normalizePath(path: string) {
-  return path.replace(/\/+/g, `/`)
-}
-
 const pathRank = (path: string) => {
   return (path.match(/\//g) || []).length
 }

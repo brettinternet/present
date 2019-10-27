@@ -1,8 +1,8 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { withPrefix, graphql } from "gatsby"
 import css from "@emotion/css"
 import styled from "@emotion/styled"
-import { withPrefix, sortPaths, removeTrailingSlash } from "../utils/anchor"
+import { sortPaths, removeTrailingSlash } from "../utils/anchor"
 
 import Layout from "../components/Layout"
 
