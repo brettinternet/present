@@ -55,18 +55,18 @@ module.exports = {
         component: `${__dirname}/src/templates/Layout`,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `#663399`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: pkg.name,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `lightgray`,
+        theme_color: `black`,
+        display: `minimal-ui`,
+        icon: `${__dirname}/src/assets/images/logo.png`,
+      },
+    },
     `gatsby-plugin-offline`,
     {
       resolve: "gatsby-plugin-root-import",
