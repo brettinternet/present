@@ -83,8 +83,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       frontmatter: Frontmatter
     }
     type Frontmatter {
-      path: [String!]
-      description: [String!]
+      path: String
+      description: String
     }
   `
   createTypes(typeDefs)

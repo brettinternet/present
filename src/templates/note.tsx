@@ -54,7 +54,6 @@ export const pageQuery = graphql`
     markdownRemark(fileAbsolutePath: { eq: $filePath }) {
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
         description
       }

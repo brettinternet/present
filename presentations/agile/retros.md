@@ -1,6 +1,6 @@
 ---
-date: "2019-06-04"
-title: "my second"
+path: "/scrum/retro"
+title: "Retro"
 ---
 
 # How to Retro
