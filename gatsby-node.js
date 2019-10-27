@@ -46,6 +46,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: addTrailingSlash(path),
       component: noteTemplate,
       context: {
+        presentation: true,
         filePath: node.fileAbsolutePath,
       },
     })

@@ -30,9 +30,6 @@ class Revealer extends React.Component<RevealerProps, RevealerState> {
 
   static defaultProps: Partial<RevealerProps> = {
     theme: Theme.WHITE,
-    config: {
-      hash: true,
-    },
   }
 
   constructor(props: RevealerProps) {

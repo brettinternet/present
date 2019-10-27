@@ -66,7 +66,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allSitePage(filter: { isCreatedByStatefulCreatePages: { eq: false } }) {
+    allSitePage(filter: { context: { presentation: { eq: true } } }) {
       edges {
         node {
           path
